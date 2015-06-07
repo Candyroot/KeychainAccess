@@ -76,11 +76,11 @@ public enum AuthenticationPolicy : Int {
 }
 
 public enum FailableOf<T> {
-    case Success(Value<T?>)
+    case Success(KAValue<T?>)
     case Failure(NSError)
     
     init(_ value: T?) {
-        self = .Success(Value(value))
+        self = .Success(KAValue(value))
     }
     
     init(_ error: NSError) {
@@ -124,7 +124,7 @@ public enum FailableOf<T> {
     }
 }
 
-public class Value<T> {
+public class KAValue<T> {
     let value: T
     init(_ value: T) { self.value = value }
 }
